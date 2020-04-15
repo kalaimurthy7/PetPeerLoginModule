@@ -14,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
@@ -42,6 +41,7 @@ public class WelcomeController {
 	public String home(Model model) {
 		List<Pet> pets = restTemplate.exchange("http://pet-businessservice/pets/getAllPets", HttpMethod.GET, null, new ParameterizedTypeReference<List<Pet>>() {}).getBody();
 		model.addAttribute("pets", pets);
+		model.addAttribute("UserName", getCurrentUserName().toUpperCase());
 		return "home";
 	}
 	
@@ -79,6 +79,13 @@ public class WelcomeController {
 		UserDetails username = (UserDetails) auth.getPrincipal();
 		User user = restTemplate.exchange("http://pet-businessservice/users/{byName}", HttpMethod.GET, null, new ParameterizedTypeReference<User>() {}, username.getUsername()).getBody();
 		return user.getUserId();
+	}
+	
+	private String getCurrentUserName() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserDetails username = (UserDetails) auth.getPrincipal();
+		User user = restTemplate.exchange("http://pet-businessservice/users/{byName}", HttpMethod.GET, null, new ParameterizedTypeReference<User>() {}, username.getUsername()).getBody();
+		return user.getUsername();
 	}
 	
 }

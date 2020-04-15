@@ -27,8 +27,8 @@
 					</form>
 			    </li>
 			  </ul>
-			</nav>
-		
+			</nav><br>
+			<div align="right">Welcome <h2>${UserName }</h2></div><br>
 			<table class="table table-striped">
 			    <thead>
 			      <tr>

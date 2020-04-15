@@ -13,11 +13,11 @@
 		        <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
 		            <div class="row">
 		                <div class="col-lg-6 col-md-8 mx-auto">
-		                	<c:if test="${param.invalid != null}">
+		                	<c:if test="${param.error != null}">
 		                		<div class="alert alert-danger">Invalid user</div>
 		                	</c:if>
-		                	<c:if test="${param.incorrectpass != null}">
-		                		<div class="alert alert-danger">Incorrect password</div>
+		                	<c:if test="${param.logout != null}">
+		                		<div class="alert alert-success">You have successfully logged out</div>
 		                	</c:if>
 		                    <!-- form card login -->
 		                    <div class="card rounded shadow shadow-sm">

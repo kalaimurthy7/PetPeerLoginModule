@@ -8,26 +8,26 @@
 	</head>
 	<body>
 		<div class = "container">
-		
-			<!-- Nav pills -->
-		  <ul class="nav nav-pills justify-content-end" role="tablist">
-		    <li class="nav-item">
-		      <a class="nav-link active" href="/home">Home</a>
-		    </li>
-		    <li class="nav-item">
-		      <a class="nav-link" href="/myPets">My Pets</a>
-		    </li>
-		    <li class="nav-item">
-		      <a class="nav-link" href="/addPet">Add Pet</a>
-		    </li>
-		    <li class="nav-item">
-		     	<!-- <a class="nav-link" href="/addPet">Add Pet</a> -->
-		    	<form action="/logout" method=post>
-    				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-    				<input type="submit" value="Logout" class="nav-link">
-				</form>
-		    </li>
-		  </ul>
+				  
+		 	<nav class="navbar navbar-expand-sm bg-primary navbar-dark justify-content-end">
+			  <ul class="navbar-nav">
+			    <li class="nav-item active">
+			      <a class="nav-link" href="/home">Home</a>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" href="/myPets">My Pets</a>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" href="/addPet">Add Pet</a>
+			    </li>
+			    <li class="nav-item">
+			     	<a class="nav-link" href="#" onclick="document.getElementById('logout').submit();">Logout</a>
+				    <form action="/logout" id = "logout" method="post">
+	    				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					</form>
+			    </li>
+			  </ul>
+			</nav>
 		
 			<table class="table table-striped">
 			    <thead>

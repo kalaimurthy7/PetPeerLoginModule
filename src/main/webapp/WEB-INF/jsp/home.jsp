@@ -40,25 +40,6 @@
 			      </tr>
 			    </thead>
 			    <tbody>
-			    	<!-- <tr>
-				        <td>1</td>
-				        <td>aaa</td>
-				        <td>TVM</td>
-				        <td>2</td>
-				        <td></td>
-				 	</tr>
-				 	<tr>
-				        <td>2</td>
-				        <td>bbb</td>
-				        <td>CHN</td>
-				        <td>5</td>
-				 	</tr>
-				 	<tr>
-				        <td>3</td>
-				        <td>ccc</td>
-				        <td>VPM</td>
-				        <td>4</td>
-				 	</tr> -->
 			    	<c:forEach items="${pets }" var = "pet">
 						<tr>
 					        <td>${pet.id }</td>

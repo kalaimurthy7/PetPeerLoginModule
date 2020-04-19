@@ -36,8 +36,10 @@
 		                                    <sf:input type="password" class="form-control form-control-lg rounded-0" path = "password" id = "psswd"/>
 		                                    <div class="invalid-feedback">Enter your password too!</div>
 		                                </div>
-		                                <button type="submit" class="btn btn-success btn-lg float-right">Login</button>
+		                                <button type="submit" class="btn btn-success btn-lg">Sign In</button>
+		                                <button type="reset" class="btn btn-primary btn-lg">Reset</button>
 		                            </sf:form>
+		                            <p>If not a member yet, Please <a href = "/signup">Register</a></p>
 		                        </div>
 		                        <!--/card-block-->
 		                    </div>

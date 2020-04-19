@@ -37,6 +37,21 @@ public class WelcomeController {
 		return "login";
 	}
 	
+	@RequestMapping("/signup")
+	public String signup(Model model) {
+		model.addAttribute("user", new User());
+		return "signup";
+	}
+	
+	@PostMapping("/signup")
+	public String addUser(@ModelAttribute User user) {
+		String status = restTemplate.postForObject("http://pet-businessservice/users/addUser", user, String.class);
+		if(status.contains("added"))
+			return "redirect:/login";
+		else
+			return "redirect:/signup?alreadyExists";
+	}	
+	
 	@RequestMapping("/home")
 	public String home(Model model) {
 		List<Pet> pets = restTemplate.exchange("http://pet-businessservice/pets/getAllPets", HttpMethod.GET, null, new ParameterizedTypeReference<List<Pet>>() {}).getBody();
